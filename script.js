@@ -7,6 +7,7 @@ const newBookAuthor = document.querySelector('input#author');
 const newBookPages = document.querySelector('input#pages');
 const newBookRead = document.querySelector('input#read');
 const table = document.querySelector('table');
+const tableBody = document.querySelector('tbody');
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -22,8 +23,25 @@ Book.prototype.info = function logInfo() {
 };
 
 function render() {
+  tableBody.innerHTML = '';
   myLibrary.forEach((book) => {
-    console.log(book.info());
+    const tableRow = document.createElement('tr');
+    const titleCell = document.createElement('td');
+    const authorCell = document.createElement('td');
+    const pagesCell = document.createElement('td');
+    const readCell = document.createElement('td');
+
+    titleCell.textContent = book.title;
+    authorCell.textContent = book.author;
+    pagesCell.textContent = book.pages;
+    readCell.textContent = book.read ? 'read' : 'not read yet';
+
+    tableRow.appendChild(titleCell);
+    tableRow.appendChild(authorCell);
+    tableRow.appendChild(pagesCell);
+    tableRow.appendChild(readCell);
+
+    tableBody.appendChild(tableRow);
   })
 }
 
