@@ -22,20 +22,28 @@ Book.prototype.info = function logInfo() {
   }`;
 };
 
+/* (3) Loops through the array and displays each book in a table. */
 function render() {
   tableBody.innerHTML = '';
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, i) => {
     const tableRow = document.createElement('tr');
+    const removeCell = document.createElement('td');
     const titleCell = document.createElement('td');
     const authorCell = document.createElement('td');
     const pagesCell = document.createElement('td');
     const readCell = document.createElement('td');
 
+    const deleteBtn = document.createElement('button');
+    deleteBtn.setAttribute('onclick', `removeBookFromLibrary(${i})`);
+
+    deleteBtn.textContent = 'X';
     titleCell.textContent = book.title;
     authorCell.textContent = book.author;
     pagesCell.textContent = book.pages;
     readCell.textContent = book.read ? 'read' : 'not read yet';
 
+    removeCell.appendChild(deleteBtn);
+    tableRow.appendChild(removeCell);
     tableRow.appendChild(titleCell);
     tableRow.appendChild(authorCell);
     tableRow.appendChild(pagesCell);
@@ -51,6 +59,12 @@ function addBookToLibrary() {
   render();
 }
 
+/* Removes book <myLibrary[index]> and re-renders the table */
+function removeBookFromLibrary(index) {
+  myLibrary.splice(index, 1);
+  render();
+}
+
 newBookBtn.addEventListener('click', () => {
   newBookForm.style.display = 'block';
 })
@@ -59,6 +73,7 @@ newBookForm.addEventListener('submit', (e) => {
   e.preventDefault();
   addBookToLibrary(); 
   table.style.display = 'table';
+  // TODO: Clear the form upon submission 
 })
 
 const book1 = new Book('Batman Unburied', 'David S. Goyer', 10, false);
