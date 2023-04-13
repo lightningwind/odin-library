@@ -22,6 +22,11 @@ Book.prototype.info = function logInfo() {
   }`;
 };
 
+/* (6) Add toggle functionality */
+Book.prototype.toggleReadStatus = function toggle() {
+  this.read = !this.read; 
+}
+
 /* (3) Loops through the array and displays each book in a table. */
 function render() {
   tableBody.innerHTML = '';
@@ -32,22 +37,31 @@ function render() {
     const authorCell = document.createElement('td');
     const pagesCell = document.createElement('td');
     const readCell = document.createElement('td');
+    const toggleCell = document.createElement('td');
 
     const deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('onclick', `removeBookFromLibrary(${i})`);
 
+    const toggleBtn = document.createElement('button');
+    toggleBtn.setAttribute('onclick', `toggleReadStatus(${i})`);
+
     deleteBtn.textContent = 'X';
+    toggleBtn.textContent = 'T';
+
     titleCell.textContent = book.title;
     authorCell.textContent = book.author;
     pagesCell.textContent = book.pages;
     readCell.textContent = book.read ? 'read' : 'not read yet';
 
     removeCell.appendChild(deleteBtn);
+    toggleCell.appendChild(toggleBtn);
+
     tableRow.appendChild(removeCell);
     tableRow.appendChild(titleCell);
     tableRow.appendChild(authorCell);
     tableRow.appendChild(pagesCell);
     tableRow.appendChild(readCell);
+    tableRow.appendChild(toggleCell);
 
     tableBody.appendChild(tableRow);
   })
@@ -65,6 +79,11 @@ function removeBookFromLibrary(index) {
   render();
 }
 
+function toggleReadStatus(index) {
+  myLibrary[index].toggleReadStatus(); 
+  render();
+}
+
 newBookBtn.addEventListener('click', () => {
   newBookForm.style.display = 'block';
 })
@@ -76,7 +95,7 @@ newBookForm.addEventListener('submit', (e) => {
   // TODO: Clear the form upon submission 
 })
 
-const book1 = new Book('Batman Unburied', 'David S. Goyer', 10, false);
+const book1 = new Book('Batman Unburied', 'David S. Goyer', 10, true);
 const book2 = new Book('Cracking the Tech Career', 'Gayle Laakmann McDowell', 334, false);
 const book3 = new Book('To Kill a Mockingbird', 'Harper Lee', 281, true);
 
