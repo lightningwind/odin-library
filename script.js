@@ -84,6 +84,13 @@ function toggleReadStatus(index) {
   render();
 }
 
+function resetForm() {
+  newBookTitle.value = ''; 
+  newBookAuthor.value = '';
+  newBookPages.value = ''; 
+  newBookRead.checked = false;  
+}
+
 newBookBtn.addEventListener('click', () => {
   newBookForm.style.display = 'block';
 })
@@ -92,7 +99,7 @@ newBookForm.addEventListener('submit', (e) => {
   e.preventDefault();
   addBookToLibrary(); 
   table.style.display = 'table';
-  // TODO: Clear the form upon submission 
+  resetForm();  
 })
 
 const book1 = new Book('Batman Unburied', 'David S. Goyer', 10, true);
