@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body {
+  margin: 0; 
+  background-color: rgb(235, 235, 235);
+
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+
+  font-family: "Roboto", sans-serif;
+}
+
+button#new-book-btn {
+  padding: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 900;
+  background-color: #0ea5e9;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
