@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0; 
   background-color: rgb(235, 235, 235);
@@ -11,6 +15,7 @@ body {
   gap: 50px;
 
   font-family: "Roboto", sans-serif;
+  font-size: 16px;
 }
 
 button#new-book-btn {
@@ -23,4 +28,62 @@ button#new-book-btn {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+form#new-book-form {
+  width: 500px; 
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form > div {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin: 8px 0;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+input[type='text'],
+input[type='number'] {
+  width: 90%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+input[type='text']:focus,
+input[type='number']:focus {
+  border-color: #333;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+button[type='submit'] {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type='submit']:hover {
+  background-color: #444;
 }
