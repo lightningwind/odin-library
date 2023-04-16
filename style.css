@@ -87,3 +87,111 @@ button[type='submit'] {
 button[type='submit']:hover {
   background-color: #444;
 }
+
+/* table */
+
+.remove-book-btn {
+  padding: 4px 8px;
+  /* margin-right: 10px; */
+  border: none;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.remove-book-btn:hover {
+  background-color: darkred;
+}
+
+.toggle-book-status-btn {
+  padding: 4px 8px;
+  /* margin-left: 10px; */
+  border: none;
+  border-radius: 50%;
+  background-color: #0ea5e9;
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.toggle-book-status-btn:hover {
+  background-color: #0a628b;
+}
+
+/* spacing */
+
+table {
+  table-layout: fixed;
+  width: 80%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+thead th:nth-child(1) {
+  width: 5%;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 20%;
+}
+
+thead th:nth-child(4) {
+  width: 10%;
+}
+
+thead th:nth-child(5) {
+  width: 20%;
+}
+
+thead th:nth-child(6) {
+  width: 5%;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+/* typography */
+
+thead th {
+  font-family: "Rock Salt", cursive;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
+
+/* zebra striping */
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(215, 215, 215);
+}
+
+/* caption */
+
+caption {
+  font-family: "Rock Salt", cursive;
+  padding: 20px;
+  font-style: italic;
+  caption-side: bottom;
+  color: #666;
+  text-align: right;
+  letter-spacing: 1px;
+}

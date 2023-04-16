@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rock+Salt" type="text/css">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <button id="new-book-btn">NEW BOOK</button>
-    <form id="new-book-form">
+    <form id="new-book-form" style="display: none;">
         <div>
             <label for="title">Title</label>
             <input type="text" name="title" id="title" required>
@@ -28,14 +29,17 @@
         </div>
         <button type="submit">Add Book</button>
     </form>
-    <table>
+    <table style="display: none;">
+      <caption>
+        My book library
+      </caption>
       <thead>
         <tr>
           <th>&nbsp;</th>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Pages</th>
-          <th>Read</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Pages</th>
+          <th scope="col">Read</th>
           <th>&nbsp;</th>
         </tr>
       </thead>

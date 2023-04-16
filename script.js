@@ -41,9 +41,11 @@ function render() {
 
     const deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('onclick', `removeBookFromLibrary(${i})`);
+    deleteBtn.classList.add('remove-book-btn');
 
     const toggleBtn = document.createElement('button');
     toggleBtn.setAttribute('onclick', `toggleReadStatus(${i})`);
+    toggleBtn.classList.add('toggle-book-status-btn');
 
     deleteBtn.textContent = 'X';
     toggleBtn.textContent = 'T';
