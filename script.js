@@ -9,22 +9,24 @@ const newBookRead = document.querySelector('input#read');
 const table = document.querySelector('table');
 const tableBody = document.querySelector('tbody');
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 
-Book.prototype.info = function logInfo() {
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${
-    this.read ? "read" : "not read yet"
-  }`;
-};
+  logInfo() {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${
+      this.read ? "read" : "not read yet"
+    }`;
+  };
 
-/* (6) Add toggle functionality */
-Book.prototype.toggleReadStatus = function toggle() {
-  this.read = !this.read; 
+  /* (6) Add toggle functionality */
+  toggleReadStatus() {
+    this.read = !this.read; 
+  }
 }
 
 /* (3) Loops through the array and displays each book in a table. */
