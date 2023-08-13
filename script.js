@@ -106,6 +106,30 @@ newBookForm.addEventListener('submit', (e) => {
   resetForm();  
 })
 
+newBookTitle.addEventListener("input", (event) => {
+  if (newBookTitle.validity.valueMissing) {
+    newBookTitle.setCustomValidity("Your book needs to have a title!");
+  } else {
+    newBookTitle.setCustomValidity("");
+  }
+});
+
+newBookAuthor.addEventListener("input", (e) => {
+  if (newBookAuthor.validity.valueMissing) {
+    newBookAuthor.setCustomValidity("Your book needs to have an author!");
+  } else {
+    newBookAuthor.setCustomValidity("");
+  }
+});
+
+newBookPages.addEventListener("input", (e) => {
+  if (newBookPages.validity.rangeUnderflow) {
+    newBookPages.setCustomValidity("Your book needs to have at least one page!");
+  } else {
+    newBookPages.setCustomValidity("");
+  }
+});
+
 const book1 = new Book('Batman Unburied', 'David S. Goyer', 10, true);
 const book2 = new Book('Cracking the Tech Career', 'Gayle Laakmann McDowell', 334, false);
 const book3 = new Book('To Kill a Mockingbird', 'Harper Lee', 281, true);
